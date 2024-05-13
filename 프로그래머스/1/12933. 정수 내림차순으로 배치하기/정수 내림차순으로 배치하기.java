@@ -1,16 +1,15 @@
+import java.util.Arrays;
+
 class Solution {
     public long solution(long n) {
-        String n1 = String.valueOf(n);
-        int[] n1Array = new int[n1.length()];
-        for(int i = 0; i < n1.length(); i++) {
-            n1Array[i] = Character.getNumericValue(n1.charAt(i));
-        }
-        sort(n1Array);
         long answer = 0;
-        for(int i = 0; i < n1Array.length; i++) {
-            answer = answer * 10 + n1Array[i];
+        String[] n1 = String.valueOf(n).split("");
+        Arrays.sort(n1);
+        StringBuilder builder = new StringBuilder();
+        for(String a : n1) {
+            builder.append(a);
         }
-        return answer;
+        return Long.parseLong(builder.reverse().toString());
     }
     public int[] sort(int[] a) {
         for(int i = 0; i < a.length - 1; i++) {
